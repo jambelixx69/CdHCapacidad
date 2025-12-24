@@ -12,7 +12,13 @@ import {
   TrendingUp,
   Mail,
   Menu,
-  X
+  X,
+  BookOpen,
+  GraduationCap,
+  FileText,
+  Lightbulb,
+  Award,
+  ArrowUpRight
 } from 'lucide-react';
 
 const App = () => {
@@ -32,26 +38,47 @@ const App = () => {
     { label: 'Años de Proyección', value: '99', icon: <TrendingUp className="w-6 h-6" /> }
   ];
 
-  const objectives = [
+  const infoResources = [
     {
-      title: "Bienestar Integral",
-      description: "Garantizar una mejor calidad de vida de forma integral a cada uno de nuestros integrantes en su entorno familiar y social.",
-      icon: <Heart className="text-blue-600" />
+      title: "Certificado de Discapacidad",
+      desc: "Guía paso a paso para obtener el RLCPD (Registro de Localización y Caracterización de Personas con Discapacidad).",
+      icon: <FileText className="text-blue-500" />
     },
     {
-      title: "Representación Activa",
-      description: "Elegir representantes en todos los espacios de participación territorial, regional, nacional e internacional.",
-      icon: <ShieldCheck className="text-blue-600" />
+      title: "Ley 1618 de 2013",
+      desc: "Conoce tus derechos fundamentales y las obligaciones del Estado para garantizar la inclusión plena.",
+      icon: <ShieldCheck className="text-emerald-500" />
     },
     {
-      title: "Gestión de Proyectos",
-      description: "Presentar propuestas y proyectos de alto valor que beneficien a la población con discapacidad en Puerto Rondón.",
-      icon: <Handshake className="text-blue-600" />
+      title: "Ruta de Salud",
+      desc: "Información sobre acceso a servicios de rehabilitación y ayudas técnicas en el departamento.",
+      icon: <Heart className="text-red-500" />
+    }
+  ];
+
+  const educationPrograms = [
+    {
+      title: "Alfabetización Digital",
+      tag: "Tecnología",
+      desc: "Capacitación en el uso de herramientas digitales y software de accesibilidad para la autonomía.",
+      icon: <Lightbulb />
+    },
+    {
+      title: "Emprendimiento Inclusivo",
+      tag: "Productividad",
+      desc: "Talleres de creación de unidades productivas y gestión de proyectos para la independencia económica.",
+      icon: <Award />
+    },
+    {
+      title: "Liderazgo y Veeduría",
+      tag: "Social",
+      desc: "Formación en participación ciudadana y representación técnica en mesas territoriales.",
+      icon: <Users />
     }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100">
+    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -66,7 +93,8 @@ const App = () => {
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="#inicio" className="hover:text-blue-600 transition-colors">Inicio</a>
-            <a href="#nosotros" className="hover:text-blue-600 transition-colors">Nosotros</a>
+            <a href="#recursos" className="hover:text-blue-600 transition-colors">Conocimiento</a>
+            <a href="#formacion" className="hover:text-blue-600 transition-colors">Formación</a>
             <a href="#impacto" className="hover:text-blue-600 transition-colors">Impacto</a>
             <a href="#contacto" className="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
               Alianzas
@@ -84,7 +112,8 @@ const App = () => {
         <div className="fixed inset-0 z-40 bg-white pt-24 px-6 md:hidden">
           <div className="flex flex-col gap-6 text-xl font-semibold">
             <a href="#inicio" onClick={() => setIsMenuOpen(false)}>Inicio</a>
-            <a href="#nosotros" onClick={() => setIsMenuOpen(false)}>Nosotros</a>
+            <a href="#recursos" onClick={() => setIsMenuOpen(false)}>Conocimiento</a>
+            <a href="#formacion" onClick={() => setIsMenuOpen(false)}>Formación</a>
             <a href="#impacto" onClick={() => setIsMenuOpen(false)}>Impacto</a>
             <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="text-blue-600">Alianzas y Contacto</a>
           </div>
@@ -92,213 +121,212 @@ const App = () => {
       )}
 
       {/* Hero Section */}
-      <section id="inicio" className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="absolute top-0 right-0 -z-10 w-1/3 h-full bg-blue-50/50 rounded-l-[100px] hidden lg:block" />
+      <section id="inicio" className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-50">
+        <div className="absolute top-0 right-0 -z-10 w-1/3 h-full bg-blue-100/30 rounded-l-[100px] hidden lg:block" />
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-              </span>
               Puerto Rondón, Arauca
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.1]">
-              Con <span className="text-blue-600 italic">discapacidad</span>,<br />hay capacidad.
+              Transformando <span className="text-blue-600">barreras</span> en capacidades.
             </h1>
             <p className="text-lg text-slate-600 max-w-lg leading-relaxed">
-              Somos la Asociación Mixta de Personas con Discapacidad de Puerto Rondón. Transformamos barreras en oportunidades a través de la inclusión integral y la representación técnica.
+              Asociación Mixta de Personas con Discapacidad. Un espacio de empoderamiento, educación e incidencia social para toda nuestra comunidad.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-800 transition-all">
-                Conoce más <ChevronRight className="w-5 h-5" />
-              </button>
-              <button className="bg-white border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold hover:border-blue-600 hover:text-blue-600 transition-all">
-                Documentación Legal
-              </button>
+              <a href="#contacto" className="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-800 transition-all">
+                Únete a nosotros <ChevronRight className="w-5 h-5" />
+              </a>
+              <a href="#recursos" className="bg-white border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold hover:border-blue-600 hover:text-blue-600 transition-all">
+                Ver Guías de Derechos
+              </a>
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[2.5rem] shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-500">
-               <div className="absolute inset-0 flex items-center justify-center p-12 text-white/10">
-                  <Accessibility size={400} strokeWidth={0.5} />
-               </div>
-               <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
-                  <p className="text-white font-medium text-lg leading-tight">
-                    "Velamos por el bienestar de nuestros asociados y beneficiarios de forma integral."
-                  </p>
-                  <p className="text-blue-200 mt-2 text-sm">— Estatutos, Art. 2</p>
+            <div className="aspect-square bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[3rem] shadow-2xl overflow-hidden flex items-center justify-center relative">
+               <Accessibility size={320} className="text-white/20 absolute -right-20 -bottom-20" />
+               <div className="relative z-10 p-12 text-center">
+                  <Heart size={80} className="text-blue-200 mx-auto mb-6 animate-pulse" />
+                  <p className="text-white text-2xl font-semibold italic">"Nuestra mayor discapacidad es no ver la capacidad de los demás."</p>
                </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section id="impacto" className="py-12 bg-white">
+      {/* 1. SECCIÓN DE INFORMACIÓN Y CONOCIMIENTO */}
+      <section id="recursos" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="p-6 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="text-blue-600 mb-4">{stat.icon}</div>
-                <div className="text-3xl font-bold text-slate-900 mb-1">{stat.value}</div>
-                <div className="text-sm text-slate-500 font-medium">{stat.label}</div>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 text-blue-600 font-bold uppercase tracking-widest text-sm mb-4">
+                <BookOpen size={20} /> Centro de Conocimiento
+              </div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">Información que empodera</h2>
+              <p className="text-slate-600 text-lg">
+                Proporcionamos las herramientas informativas necesarias para que cada persona con discapacidad y su familia conozcan sus derechos y las rutas de atención vigentes.
+              </p>
+            </div>
+            <button className="text-blue-600 font-bold flex items-center gap-2 hover:underline">
+              Explorar biblioteca legal <ArrowUpRight size={20} />
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {infoResources.map((resource, i) => (
+              <div key={i} className="group p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform">
+                  {resource.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-slate-900">{resource.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                  {resource.desc}
+                </p>
+                <button className="text-sm font-bold text-blue-600 flex items-center gap-1 group-hover:translate-x-2 transition-transform">
+                  Leer más <ChevronRight size={16} />
+                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Section (Objectives from Statutes) */}
-      <section id="nosotros" className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* 2. SECCIÓN DE FORMACIÓN Y EDUCACIÓN */}
+      <section id="formacion" className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+          <GraduationCap className="absolute -top-10 -left-10 w-96 h-96" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Nuestro Compromiso Social</h2>
-            <p className="text-slate-600 text-lg">
-              Regidos por principios de transparencia y bienestar, nuestra labor se enfoca en tres ejes fundamentales definidos en nuestra constitución legal.
+            <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/20 text-blue-400 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-xs mb-6">
+              <GraduationCap size={16} /> Educación Inclusiva
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Área de Formación Continua</h2>
+            <p className="text-slate-400 text-lg">
+              No solo acompañamos, capacitamos. Creemos que la educación es el puente hacia la verdadera autonomía y participación laboral.
             </p>
           </div>
+
           <div className="grid md:grid-cols-3 gap-8">
-            {objectives.map((obj, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-lg transition-all group">
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
-                  {React.cloneElement(obj.icon, { className: "w-7 h-7 group-hover:text-white transition-colors" })}
+            {educationPrograms.map((program, i) => (
+              <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-[2.5rem] hover:bg-white/10 transition-all border-b-4 border-b-blue-500">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="text-blue-400">{program.icon}</div>
+                  <span className="text-[10px] font-bold bg-white/10 px-3 py-1 rounded-full uppercase tracking-widest">
+                    {program.tag}
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-slate-900">{obj.title}</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  {obj.description}
+                <h3 className="text-xl font-bold mb-4">{program.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {program.desc}
                 </p>
               </div>
             ))}
           </div>
+
+          <div className="mt-16 bg-blue-600 rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left">
+              <h4 className="text-2xl font-bold mb-2">¿Eres docente o capacitador?</h4>
+              <p className="text-blue-100">Ayúdanos a expandir nuestros programas de formación en Puerto Rondón.</p>
+            </div>
+            <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-slate-100 transition-all whitespace-nowrap">
+              Postular Taller
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* Public/Private Sector Value Section */}
-      <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-6 leading-tight">Aliados para el Desarrollo Sostenible e Inclusivo</h2>
-              <p className="text-slate-400 text-lg mb-8">
-                Ofrecemos a organismos públicos y privados una plataforma técnica y humana para la ejecución de proyectos de alto impacto social en la región de Arauca.
-              </p>
-              <ul className="space-y-4 mb-10">
-                {[
-                  "Transparencia en la gestión de recursos.",
-                  "Caracterización detallada de la población.",
-                  "Cumplimiento normativo y estatutario.",
-                  "Enfoque en resultados medibles."
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <div className="bg-blue-500/20 p-1 rounded-full text-blue-400">
-                      <ShieldCheck className="w-5 h-5" />
-                    </div>
-                    <span className="text-slate-300 font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="grid grid-cols-1 gap-4">
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl">
-                <h4 className="text-blue-400 font-bold mb-2 uppercase text-xs tracking-widest">Para Organismos Públicos</h4>
-                <p className="text-slate-200">Somos el puente directo para la implementación de políticas públicas de inclusión y veeduría ciudadana.</p>
+      {/* Impact Stats */}
+      <section id="impacto" className="py-16 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="text-center p-6">
+                <div className="text-blue-600 flex justify-center mb-4">{stat.icon}</div>
+                <div className="text-4xl font-black text-slate-900 mb-1">{stat.value}</div>
+                <div className="text-xs text-slate-500 font-bold uppercase tracking-widest">{stat.label}</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl">
-                <h4 className="text-indigo-400 font-bold mb-2 uppercase text-xs tracking-widest">Para la Empresa Privada</h4>
-                <p className="text-slate-200">Facilitamos el cumplimiento de metas de Responsabilidad Social Empresarial (RSE) con impacto real.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="py-24 bg-white">
+      <section id="contacto" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 overflow-hidden relative">
-            <div className="grid md:grid-cols-2 gap-16">
+          <div className="bg-white rounded-[3rem] shadow-xl overflow-hidden grid md:grid-cols-2">
+            <div className="p-12 md:p-16 bg-slate-900 text-white flex flex-col justify-between">
               <div>
-                <h2 className="text-4xl font-bold mb-6">¿Hablamos de Impacto?</h2>
-                <p className="text-slate-600 mb-8">
-                  Estamos abiertos a nuevas alianzas, convenios y colaboraciones que fortalezcan nuestra misión en Puerto Rondón.
+                <h2 className="text-4xl font-bold mb-6 italic">Hay Capacidad</h2>
+                <p className="text-slate-400 mb-10 text-lg leading-relaxed">
+                  Contáctanos para ser parte de nuestra base de datos, solicitar información sobre capacitaciones o proponer alianzas institucionales.
                 </p>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600">
-                      <MapPin />
-                    </div>
+                    <MapPin className="text-blue-500" />
                     <div>
-                      <p className="text-xs text-slate-400 font-bold uppercase">Ubicación</p>
-                      <p className="font-medium text-slate-800">Calle 2 N° 11-106, Barrio 7 de Agosto</p>
-                      <p className="text-sm text-slate-500">Puerto Rondón, Arauca</p>
+                      <p className="text-xs text-slate-500 font-bold uppercase">Sede Social</p>
+                      <p className="font-medium">Calle 2 N° 11-106, Puerto Rondón</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600">
-                      <Phone />
-                    </div>
+                    <Phone className="text-blue-500" />
                     <div>
-                      <p className="text-xs text-slate-400 font-bold uppercase">Contacto Directo</p>
-                      <p className="font-medium text-slate-800">322 476 5401</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600">
-                      <Mail />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-400 font-bold uppercase">Correo Electrónico</p>
-                      <p className="font-medium text-slate-800">asociacion.haycapacidad@email.com</p>
+                      <p className="text-xs text-slate-500 font-bold uppercase">Teléfono</p>
+                      <p className="font-medium">322 476 5401</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-1">Nombre o Entidad</label>
-                    <input type="text" className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 transition-all outline-none" placeholder="Ej: Alcaldía de..." />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-1">Motivo de contacto</label>
-                    <select className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 transition-all outline-none appearance-none">
-                      <option>Alianza Estratégica</option>
-                      <option>Donación / Apoyo</option>
-                      <option>Consulta de Información</option>
-                      <option>Otro</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-1">Mensaje</label>
-                    <textarea className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 transition-all outline-none h-32 resize-none" placeholder="¿Cómo podemos colaborar?"></textarea>
-                  </div>
-                  <button className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition-all shadow-lg">
-                    Enviar Propuesta
-                  </button>
-                </form>
+              <div className="mt-12 pt-8 border-t border-white/10 flex gap-4">
+                <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer"><Mail size={18} /></div>
+                <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer"><Accessibility size={18} /></div>
               </div>
+            </div>
+            <div className="p-12 md:p-16">
+              <form className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-bold text-slate-400 uppercase mb-2 block">Nombre</label>
+                    <input type="text" className="w-full bg-slate-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none" />
+                  </div>
+                  <div>
+                    <label className="text-xs font-bold text-slate-400 uppercase mb-2 block">Celular</label>
+                    <input type="text" className="w-full bg-slate-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none" />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-slate-400 uppercase mb-2 block">¿En qué estás interesado?</label>
+                  <select className="w-full bg-slate-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none appearance-none">
+                    <option>Información de Derechos</option>
+                    <option>Programas de Formación</option>
+                    <option>Alianza Público/Privada</option>
+                    <option>Registro en la Asociación</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-slate-400 uppercase mb-2 block">Tu mensaje</label>
+                  <textarea className="w-full bg-slate-50 border-none rounded-xl p-4 h-32 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
+                </div>
+                <button className="w-full bg-blue-600 text-white font-bold py-5 rounded-2xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">
+                  Enviar Mensaje
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-slate-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="flex justify-center items-center gap-2 mb-6">
-            <Accessibility className="text-blue-600 w-5 h-5" />
-            <span className="font-bold text-lg text-slate-800">Asociación Hay Capacidad</span>
-          </div>
-          <p className="text-slate-500 text-sm mb-4">
-            Entidad sin ánimo de lucro constituida bajo las leyes de la República de Colombia.
-          </p>
-          <p className="text-xs text-slate-400">
-            © {new Date().getFullYear()} Asociación Mixta de Personas con Discapacidad de Puerto Rondón. Todos los derechos reservados.
+      <footer className="py-12 bg-white text-center">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-slate-400 text-sm">
+            © {new Date().getFullYear()} Asociación Mixta de Personas con Discapacidad de Puerto Rondón. 
+            <br />
+            <span className="font-bold">Con discapacidad, hay capacidad.</span>
           </p>
         </div>
       </footer>
